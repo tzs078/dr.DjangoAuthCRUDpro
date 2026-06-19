@@ -1,0 +1,83 @@
+{% extends 'master/base.html' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+<style>
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+label {display: block;}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+</style>
+<body>
+
+<h2>Edit doctor details. </h2>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <label for="fname">Name</label>
+  <input type="text" id="fname" name="firstname" value="{{doc_data.Name}}" placeholder="Your name..">
+
+  <label for="lname">Email</label>
+  <input type="email" id="lname" name="emailf" value="{{doc_data.Email}}" placeholder="Your email..">
+
+  <label for="lname">Phone</label>
+  <input type="number" id="lname" name="phonef" value="{{doc_data.Phone}}" placeholder="Your phone..">
+
+  <label for="lname">Address</label>
+  <input type="text" id="lname" name="addressf" value="{{doc_data.Address}}" placeholder="Your address..">
+
+  <label for="country">Gender</label>
+  <select id="country" name="Gender">
+    <option value="Male" {% if doc_data.Gender == 'Male' %}
+    selected
+    {% endif %}>Male</option>
+    <option value="Female" {% if doc_data.Gender == 'Female' %}
+    selected
+    {% endif %}>Female</option>
+  </select>
+
+  <label for="lname">Image</label>
+  <input type="file" id="lname" value="doc_data.Image" name="imagef" >
+
+  
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+
+
+
+    
+{% endblock body %}
+    

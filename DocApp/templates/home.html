@@ -1,0 +1,134 @@
+{% extends 'master/base.html' %}
+
+{% block body %}
+{% include 'master/messages.html' %}
+
+        <div class="welcome-box">
+            <h1>Welcome to Home Page 🎉</h1>
+            <h1>Dr {{request.user.username}}</h1>
+            <p>You are successfully logged in to your Django application.</p>
+        </div>
+
+{% comment %} <p>Welcome Dr{{request.user.username}}</p> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        /* Container */
+        .container{
+            padding:40px;
+        }
+
+        .welcome-box{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .welcome-box h1{
+            margin-bottom:10px;
+            color:#333;
+        }
+
+        .welcome-box p{
+            color:#666;
+        }
+
+        /* Cards */
+        .cards{
+            margin-top:30px;
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+            gap:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            text-align:center;
+            box-shadow:0 5px 10px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .card h3{
+            margin-bottom:10px;
+            color:#4facfe;
+        }
+
+        .card p{
+            color:#777;
+            font-size:14px;
+        }
+
+        /* Button */
+        .btn{
+            display:inline-block;
+            margin-top:10px;
+            padding:10px 15px;
+            background:#4facfe;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .btn:hover{
+            background:#3498db;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Content -->
+    <div class="container">
+
+        <!-- Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>Profile</h3>
+                <p>View and update your profile info</p>
+                <a href="#" class="btn">Open</a>
+            </div>
+
+            <div class="card">
+                <h3>Dashboard</h3>
+                <p>Check your activity summary</p>
+                <a href="#" class="btn">Open</a>
+            </div>
+
+            <div class="card">
+                <h3>Settings</h3>
+                <p>Manage account settings</p>
+                <a href="#" class="btn">Open</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+    
+{% endblock body %}
+    

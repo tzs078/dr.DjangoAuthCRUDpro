@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+    .navbar{
+            background:#4facfe;
+            padding:15px 30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            color:white;
+        }
+
+        .navbar h2{
+            font-size:22px;
+        }
+
+        .navbar a{
+            color:white;
+            text-decoration:none;
+            margin-left:15px;
+            font-weight:bold;
+        }
+
+        .navbar a:hover{
+            text-decoration:underline;
+        }
+</style>
+
+</head>
+<body>
+ 
+ <!-- Navbar -->
+    <div class="navbar">
+        <h2>Django Home</h2>
+        <div>
+            <a href="{% url 'homePage' %}">Home</a>
+            <a href="{% url 'docListPage' %}">Dr List</a>
+            <a href="{% url 'loginPage' %}">log Out</a>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+
+
+
+
+
+
+{% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'homePage' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'docListPage' %}">Doctor List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logoutPage' %}">Log Out</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav> {% endcomment %}
+
