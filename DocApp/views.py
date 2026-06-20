@@ -4,6 +4,23 @@ from django.contrib import messages
 from django.contrib.auth import login, logout , authenticate
 # Create your views here.
 
+# home secsion------------
+
+def homePage(req):
+    doc_view = DocModel.objects.all()
+    context = {
+        'doc_view' : doc_view
+    }
+    return render(req,'home.html',context)
+
+def homeDetailsPage(req,id):
+    doc_view = DocModel.objects.get(id = id)
+    context = {
+        'doc_view' : doc_view
+    }
+    return render(req,"homeDetails.html",context)
+
+
 # singin login secsion -------
 def signupPage(req):
     if req.method == 'POST':
@@ -53,9 +70,6 @@ def loginPage(req):
     return render(req,'login.html')
 
 
-def homePage(req):
-    return render(req,'home.html')
-
 def logoutPage(req):
     logout(req)
     return redirect('loginPage')
@@ -63,7 +77,15 @@ def logoutPage(req):
 # CRUD Seccsion----------
 
 def docListPage(req):
+    filter_option = req.GET.get('gender')
+
     doc_data = DocModel.objects.all()
+
+    if filter_option:
+        doc_data = DocModel.objects.filter(Gender = filter_option)
+    else:
+        doc_data = DocModel.objects.all()
+         
     context = {
         'doc_data' : doc_data
     }

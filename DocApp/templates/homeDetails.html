@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .btn{
+            display:inline-block;
+            margin-top:10px;
+            padding:10px 15px;
+            background:#4facfe;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .btn:hover{
+            background:#3498db;
+        }
+    </style>
+</head>
+<body>
+     <!-- Content -->
+    <div class="container">
+
+        <!-- Cards -->
+        <div class="cards">
+            <div class="card">
+                <img src="{{doc_view.Image.url}}" alt="" height="200px" width="200px" >
+                <h3>{{doc_view.Name}}</h3>
+                <h3>{{doc_view.Email}}</h3>
+                <h3>{{doc_view.Phone}}</h3>
+                <h3>{{doc_view.Address}}</h3>
+                <h3>{{doc_view.Gender}}</h3>
+
+                <a href="{% url 'docUpdatePage' doc_view.id  %}" class="btn">Update</a>
+                <a href="{% url 'homePage' %}" class="btn">Back</a>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

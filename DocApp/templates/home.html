@@ -105,13 +105,17 @@
         <!-- Cards -->
         <div class="cards">
 
+            
+            {% for b in doc_view %}
             <div class="card">
-                <h3>Profile</h3>
+                <h3>{{b.Name}}</h3>
                 <p>View and update your profile info</p>
-                <a href="#" class="btn">Open</a>
+                <a href="{% url 'homeDetailsPage' b.id %}" class="btn">Open</a>
             </div>
+            {% endfor %}
+                
 
-            <div class="card">
+            {% comment %} <div class="card">
                 <h3>Dashboard</h3>
                 <p>Check your activity summary</p>
                 <a href="#" class="btn">Open</a>
@@ -121,7 +125,7 @@
                 <h3>Settings</h3>
                 <p>Manage account settings</p>
                 <a href="#" class="btn">Open</a>
-            </div>
+            </div> {% endcomment %}
 
         </div>
 

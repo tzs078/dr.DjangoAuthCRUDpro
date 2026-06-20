@@ -1,20 +1,31 @@
-# Python
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
-
-# Django
-db.sqlite3
-media/
-staticfiles/
+*.pyd
 
 # Virtual environment
 venv/
 env/
+ENV/
+docEnv/
 
-# IDE
+# Database (SQLite)
+db.sqlite3
+
+# Media / uploads
+media/
+Media/
+
+# Static files (optional)
+staticfiles/
+
+# Django secret
+*.log
+
+# VS Code
 .vscode/
-.idea/
 
-# env file
-.env
+# OS files
+.DS_Store
+Thumbs.db

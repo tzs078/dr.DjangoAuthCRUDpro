@@ -1,50 +1,52 @@
-{% extends 'master/base.html' %}
-
-
-{% block body %}
+{% extends 'master/base.html' %} {% block body %}
 
 <table class="table table-success table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Gender</th>
-            <th>Address</th>
-            <th>Image</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Image</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <a href="{% url 'docAddPage' %}" class="btn btn-success">Add New Doctor</a>
 
-       <a href="{% url 'docAddPage' %}" class="btn btn-success">Add New Doctor</a>
+    <form method="GET">
+      <select name="gender">
+        <option value="">All</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
 
-       {% for d in doc_data %}
-          <tr>
-            <td>{{d.Name}}</td>
-            <td>{{d.Email}}</td>
-            <td>{{d.Phone}}</td>
-            <td>{{d.Address}}</td>
-            <td>{{d.Gender}}</td>
-            <td>
-                {% if d.Image %}
-                <img src="{{d.Image.url}}" alt="" height="50px" width="50px">
-                {% else %}
-                No Image
-                {% endif %}
-            </td>
+      <button type="submit">Filter</button>
+    </form>
+    
+    {% for d in doc_data %}
+    <tr>
+      <td>{{d.Name}}</td>
+      <td>{{d.Email}}</td>
+      <td>{{d.Phone}}</td>
+      <td>{{d.Address}}</td>
+      <td>{{d.Gender}}</td>
+      <td>
+        {% if d.Image %}
+        <img src="{{d.Image.url}}" alt="" height="50px" width="50px" />
+        {% else %} No Image {% endif %}
+      </td>
 
-            <td><a href="{% url 'docDltPage' d.id %}" class="btn btn-danger">Delete</a>
-            <a href="{% url 'docUpdatePage' d.id %}" class="btn btn-success">Update</a>
-            </td>
-            
-
-        </tr>
-       {% endfor %}
-        
-
-    </tbody>
+      <td>
+        <a href="{% url 'docDltPage' d.id %}" class="btn btn-danger">Delete</a>
+        <a href="{% url 'docUpdatePage' d.id %}" class="btn btn-success"
+          >Update</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>
-    
+
 {% endblock body %}
-    
